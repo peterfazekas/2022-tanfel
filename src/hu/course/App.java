@@ -24,5 +24,26 @@ public class App {
 
     private void run() {
         System.out.println("2. feladat:");
+        System.out.println("A fájlban " + courseService.getCourseCount() +
+                " bejegyzés van.");
+        System.out.println("3. feladat:");
+        System.out.println("Az iskolában a heti összóraszám: " +
+                courseService.getTotalLessonCount());
+        System.out.println("4. feladat:");
+        System.out.print("Egy tanár neve= ");
+        String teacher = console.read();
+        System.out.println("A tanár heti óraszáma: " +
+                courseService.getTeacherWeeklyLesson(teacher));
+        dataWriter.write(courseService.getMasterTeachers());
+        System.out.println("6. feladat:");
+        System.out.print("Osztály= ");
+        String classId = console.read();
+        System.out.print("Tantárgy= ");
+        String subject = console.read();
+        System.out.println(courseService.getCourseStatus(classId, subject) +
+                " tanulják");
+        System.out.println("7. feladat:");
+        System.out.println("Az iskolában " + courseService.getTeacherCount() +
+                " tanár tanít. ");
     }
 }
